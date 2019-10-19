@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      REST API Example
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-router-outlet><ion-router-outlet>
+  <div class="ion-padding">
+    <div>
+      <p>Rest API GET example below:</p>
+      <div>
+        <ion-button (click)="onGET()">
+          <ion-icon slot="start" name="add"></ion-icon>
+          Click me to GET request
+        </ion-button>
+      </div>
+      <div>
+        <div *ngFor="let article of articles">
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size-lg="3"></ion-col>
+              <ion-col size-lg="6" size-xs="12">
+                <ion-card>
+                  <img src="{{ article.urlToImage }}" alt="Image" />
+                  <ion-card-header>
+                    <ion-card-title>{{ article.title }}</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    {{ article.description }}
+                    <h6><a href="{{ article.url }}">Read full article</a></h6>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+              <ion-col size-lg="3"></ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="news">
+    <ion-icon name="paper"></ion-icon>
+    <ion-label>News</ion-label>
+  </ion-tab-button>
+  <ion-tab-button tab="database">
+    <ion-icon name="calculator"></ion-icon>
+    <ion-label>Database</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
